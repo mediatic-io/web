@@ -1,0 +1,18 @@
+FAQ_DATA=[
+("No tengo tiempo para crear contenido",
+ "En realidad no necesitas tanto como crees. Con unas 5 horas al mes es suficiente: grabamos el contenido de 1, 2 o 3 meses en una sola jornada de rodaje. Antes de nada tenemos una llamada contigo para conocer tu negocio y tu forma de trabajar. A partir de ahí nos encargamos de todo: estrategia, ideas, guiones, edición y publicación. Tu único trabajo es validar los guiones y estar ese día delante de la cámara."),
+("Me da vergüenza salir a cámara, ¿y si no sé qué decir?",
+ "Para crear contenido en redes alguien tiene que salir a cámara, ya seas tú o alguien de tu equipo. Pero tranquilo, es lo más normal del mundo: a casi todos nuestros clientes les pasaba lo mismo al principio. No vas a tener que improvisar nada. Llegarás al día de la grabación con los guiones ya escritos y adaptados a tu forma de hablar, y te dirigiremos plano a plano. Si algo no sale como debe, se repite. Te aseguramos que a los pocos minutos ya no te acordarás de que hay una cámara."),
+("¿Cuándo veré resultados?",
+ "No te vamos a mentir: no existe una fórmula ni una fecha mágica. La rapidez depende de tu sector, de tu punto de partida, de la constancia y de la cantidad de contenido, entre otros factores. Lo habitual es notar la diferencia respecto a tu perfil anterior desde el principio. Y lo que sí sabemos es que, si te mantienes constante durante al menos un año, los resultados llegan. Las redes son una carrera de fondo: cuanto antes empieces, antes los verás."),
+("Mi sector es muy específico, ¿funciona para mí?",
+ "Sí. No existe un sector difícil. Hemos trabajado con cuentas tan concretas como el buceo técnico, empresas de transporte, espectáculos de drones o empresas industriales, y con todas hemos conseguido buenos resultados. Si hay gente que busca lo que haces, hay audiencia para tus vídeos."),
+("¿Qué incluye el servicio y cuántos vídeos son al mes?",
+ "Nos encargamos de todo: estrategia, ideas, guiones, grabación, edición y publicación de reels para Instagram y TikTok. El número de vídeos depende del pack, que va de 4 a 12 al mes, aunque también hacemos packs personalizados para ajustarnos a lo que buscas. Lo mejor es que reserves una llamada y vemos tu caso."),
+("Ya lo intenté y no me funcionó. ¿Por qué ahora sí debería?",
+ "Porque las redes necesitan una estrategia para funcionar. No se trata de crear contenido por crear ni de hacer vídeos por hacer, sino de tener un sistema: ideas pensadas para tu cliente ideal, guiones que retengan de verdad, una grabación y una edición que acompañen esa retención y una publicación constante cada semana. Eso es justo lo que hacemos, y es lo que nos permite conseguir estos resultados con nuestros clientes."),
+("¿Hay permanencia?",
+ "No, trabajamos sin permanencia. Lo que sí pedimos a nuestros clientes es compromiso, porque para conseguir resultados hace falta implicación por las dos partes."),
+("¿Por qué Mediatic y no otra agencia?",
+ "Porque no nos centramos en hacer vídeos bonitos: trabajamos para que tu contenido atraiga audiencia y clientes a tu negocio. Tenemos un equipo completo de especialistas en guion, grabación y edición, y un proceso pensado para que tú le dediques poco tiempo y consigas grandes resultados. Acumulamos millones de visualizaciones y cientos de miles de euros de facturación generados para nuestros clientes gracias al contenido. Si estás pensando en empezar en redes, tómatelo en serio y hazlo con quien pueda demostrarlo. Nosotros somos esa agencia."),
+]

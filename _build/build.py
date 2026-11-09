@@ -21,6 +21,7 @@ SEO={
 # En SEO[...][2]: True = se indexa; False = noindex (blog hasta tener artículos reales, 404 siempre)
 CRUMBS={'equipo.html':'Equipo','clientes.html':'Clientes','blog.html':'Blog','contrataciones.html':'Contrataciones','aviso-legal.html':'Aviso Legal','politica-privacidad.html':'Política de Privacidad','politica-cookies.html':'Política de Cookies'}
 
+from seguir_leyendo import seguir
 ART_META={'mitos-de-instagram.html':dict(
  title='Mitos de Instagram: 6 falsas verdades que frenan tu negocio',
  desc='Descubre los 6 mitos de Instagram que frenan a tu negocio: hora, hashtags, viralidad y ventas. Te contamos qué funciona de verdad. Lee la guía completa.',
@@ -76,7 +77,7 @@ ART_META.update({
  'caso-exito-gisela-jorba.html':_draft('caso-exito-gisela-jorba.html','Caso de éxito: Gisela Jorba','Casos de éxito','Caso de éxito: Gisela Jorba.','2026-09-15','15 de septiembre de 2026'),
  'caso-exito-mario-cozma.html':_draft('caso-exito-mario-cozma.html','Caso de éxito: Mario Cozma','Casos de éxito','Caso de éxito: Mario Cozma.','2026-06-30','30 de junio de 2026'),
 
- 'descripcion-reels-instagram.html':_draft('descripcion-reels-instagram.html','Cómo escribir la descripción de un reel de Instagram','Consejos','Cómo escribir la descripción de un reel de Instagram.','2026-07-14','14 de julio de 2026'),
+ 'guion-reels-instagram.html':_draft('guion-reels-instagram.html','Cómo escribir el guion de un reel de Instagram','Consejos','Cómo escribir el guion de un reel de Instagram.','2026-07-14','14 de julio de 2026'),
  'servicios.html':_draft('servicios.html','Servicios de contenido para empresas','Noticias','Servicios de contenido para redes sociales para empresas.','2026-11-30','30 de noviembre de 2026'),
 })
 GAL_ALTS={'img/blog/de-profundis-resultados-reels':[
@@ -84,7 +85,7 @@ GAL_ALTS={'img/blog/de-profundis-resultados-reels':[
  'Reel de De Profundis con 143 mil visualizaciones: el nitrox sirve para bucear',
  'Reel de De Profundis con 98,2 mil visualizaciones: ranking de mejores lugares para buceo',
  'Reel de De Profundis con 199 mil visualizaciones: gas para buceo']}
-RELATED={'pmu-paradise.html':['gamma-pmu-congress-2026.html','opciones-marketing-2026.html'],'opciones-marketing-2026.html':['mitos-de-instagram.html','de-profundis.html'],'mediatic-cumple-2-anos.html':['de-profundis.html','gamma-pmu-congress-2026.html'],'mitos-de-instagram.html':['de-profundis.html','gamma-pmu-congress-2026.html','descripcion-reels-instagram.html','servicios.html'],'de-profundis.html':['mitos-de-instagram.html','servicios.html'],'gamma-pmu-congress-2026.html':['mitos-de-instagram.html','servicios.html']}
+RELATED={'pmu-paradise.html':['gamma-pmu-congress-2026.html','opciones-marketing-2026.html'],'opciones-marketing-2026.html':['mitos-de-instagram.html','de-profundis.html'],'mediatic-cumple-2-anos.html':['de-profundis.html','gamma-pmu-congress-2026.html'],'mitos-de-instagram.html':['de-profundis.html','gamma-pmu-congress-2026.html','guion-reels-instagram.html','servicios.html'],'de-profundis.html':['mitos-de-instagram.html','servicios.html'],'gamma-pmu-congress-2026.html':['mitos-de-instagram.html','servicios.html']}
 ART_META=dict(sorted(ART_META.items(),key=lambda kv:kv[1].get('date',''),reverse=True))
 def canon(file): return SITE+('/' if file=='index.html' else '/'+file)
 def esc(t): return t.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')
@@ -291,13 +292,14 @@ page('blog.html','Blog | Mediatic',head('Blog','Noticias y artículos de <span c
 for _f,_a in ART_META.items():
     SEO[_f]=(_a['title'],_a['desc'],not _a.get('draft'))
     _body=open(os.path.join(OUT,'_build','articulos',_f)).read()
-    _vid=('<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir el vídeo: %s">%s<span class="rplay">&#9654;</span></div>'%(_a.get('yt',''),esc(_a['h1']),('<img src="%s" alt="Vídeo: %s" width="1280" height="720" loading="lazy" decoding="async">'%(_a['thumb'],esc(_a['h1']))) if os.path.exists(os.path.join(OUT,_a['thumb'])) else ''))
+    _vid=('<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir el vídeo: %s">%s<span class="rplay">&#9654;</span></div>'%(_a.get('yt',''),esc(_a['h1']),('<img src="%s" alt="Vídeo: %s" width="1280" height="720" loading="lazy" decoding="async">'%(_a['thumb'],esc(_a['h1']))) if os.path.exists(os.path.join(OUT,_a['thumb'])) else ''))+'<p class="vcap">Vídeo sobre los mitos de Instagram. Fuente: YouTube (canal de la agencia).</p>'
     _body=_body.replace('<!--VIDEO-->',_vid if _a.get('yt') else '')
     def _vid2(m):
         vid=m.group(1);th='img/entrevistas/%s.jpg'%vid
         im='<img src="%s" alt="Entrevista en vídeo" width="640" height="360" loading="lazy" decoding="async">'%th if os.path.exists(os.path.join(OUT,th)) else ''
-        return '<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir la entrevista en vídeo">%s<span class="rplay">&#9654;</span></div>'%(vid,im)
-    _body=re.sub(r'<!--VIDEO:([\w-]+)-->',_vid2,_body)
+        cap=m.group(2)
+        return '<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir la entrevista en vídeo">%s<span class="rplay">&#9654;</span></div>%s'%(vid,im,('<p class="vcap">%s</p>'%esc(cap)) if cap else '')
+    _body=re.sub(r'<!--VIDEO:([\w-]+)(?:\|([^>]*?))?-->',_vid2,_body)
     def _photo(m):
         src,alt,cap,cred=m.group(1).split('|')
         base=src[:-4]
@@ -318,10 +320,7 @@ for _f,_a in ART_META.items():
       '<div class="acta hl"><span>Crece con nosotros</span><h2>¿Hablamos de tu proyecto?</h2><p>Te decimos si podemos multiplicar por 5 tus visitas y leads con menos de 5 horas al mes.</p><a class="btn" href="index.html#contacto" data-link="blog-lateral">Agendar diagnóstico <i>→</i></a></div>'
       +_more+'</div></aside>')
     _head=('<section class="page-head art-head"><div class="wrap"><nav class="crumbs" aria-label="Migas de pan"><a href="index.html">Home</a><i>›</i><a href="blog.html">Blog</a><i>›</i><span aria-current="page">%s</span></nav><h1>%s</h1><p class="byline">%s</p></div></section>'%(_a['h1'],_a['h1'],(_a['cat']+' · Próximamente'+((' · '+_a['fecha']) if _a.get('fecha') else '')) if _a.get('draft') else '%s · Por el equipo de <b>Mediatic</b> · <time datetime="%s">%s</time> · %d min de lectura'%(_a['cat'],_a['date'],_a['fecha'],_a['mins'])))
-    _rel=''
-    if _f in RELATED:
-        _rel='<section class="related" aria-labelledby="rel-h"><h2 id="rel-h">Artículos relacionados</h2><div class="relgrid">'+''.join('<a class="relc" href="%s"><small>%s%s</small><b>%s</b></a>'%(k,ART_META[k]['cat'],' · Próximamente' if ART_META[k].get('draft') else '',ART_META[k]['h1']) for k in RELATED[_f])+'</div></section>'
-    page(_f,_a['h1'],_head+'<section class="art"><div class="wrap art-grid"><article class="prose">'+_body+_rel+'</article>'+_aside+'</div></section>')
+    page(_f,_a['h1'],_head+'<section class="art"><div class="wrap art-grid"><article class="prose">'+_body+'</article>'+_aside+'</div></section>'+seguir(_f,ART_META,RELATED,OUT))
 
 
 # ---- PÁGINAS LEGALES (texto copiado tal cual de legal.mediatic.io) ----

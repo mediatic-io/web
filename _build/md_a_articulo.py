@@ -15,7 +15,7 @@ STRIP_LIST_BOLD={'opciones-marketing-2026'}
 INTERNAL={
  'https://www.mediatic.io/casos-de-exito/[nombre-cliente]':'de-profundis.html',
  'https://www.mediatic.io/casos-de-exito/de-profundis':'de-profundis.html',
- 'https://www.mediatic.io/blog/descripcion-reels-instagram':'descripcion-reels-instagram.html',
+ 'https://www.mediatic.io/blog/descripcion-reels-instagram':'guion-reels-instagram.html',
  'https://www.mediatic.io/servicios':'servicios.html',
  'https://www.mediatic.io/blog/mitos-de-instagram':'mitos-de-instagram.html',
  'https://www.mediatic.io/blog/opciones-de-marketing-2026':'opciones-marketing-2026.html',

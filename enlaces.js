@@ -12,9 +12,13 @@ window.MEDIATIC = {
     'hero':         'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-qro-resul',  // Botón del inicio: "Quiero conseguir estos resultados"
     'quienes-somos':'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-qin-som',  // Botón de ¿Quiénes somos?: "Quiero que trabajemos juntos"
     'resultados':   'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=resul',  // Botón del bloque azul de reels: "Quiero estos resultados"
-    'hablemos':     'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-hablemos',  // Botón de la sección "Hablemos": "Rellenar el formulario"
+    'hablemos':     'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=hblms',  // Botón de la sección "Hablemos": "Rellenar el formulario"
     'pie':          '',  // Botón "Pedir presupuesto" del pie de página (sale en todas las páginas)
     'blog-lateral': '',  // Botón fijo del lateral de los artículos del blog: "Agendar diagnóstico"
+    'blog-opciones-marketing-2026':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=opciones-marketing-2026',  // Enlace "hablemos" del artículo de opciones de marketing 2026
+    'blog-de-profundis':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=web-blog-caso-exito-de-profundis',  // Enlace "contacta con Mediatic" del caso de éxito de De Profundis
+    'blog-mitos-instagram':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=mitos-instagram',  // Enlace "contacta con Mediatic" del artículo de mitos de Instagram
+    'blog-pmu-paradise':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=pmu-paradise',  // Enlace "contacta con Mediatic" del artículo de PMU Paradise
     'blog-articulo':''   // Enlace de texto dentro de los artículos del blog: "agenda una sesión de diagnóstico"
   },
 

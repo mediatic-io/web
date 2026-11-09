@@ -770,3 +770,33 @@ main{display:block}
 /* Hablemos: tarjeta con botón al formulario (sustituye al formulario corto) */
 .qcta p{font-size:18px;line-height:1.5;color:#3a3a48;margin:0 0 26px}
 .qcta .btn{width:100%;justify-content:space-between}
+
+/* Blog: bloque "Seguir leyendo" al final de cada artículo */
+.seguir{padding:20px 0 90px}
+.seguir h2{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.03em;margin:6px 0 34px}
+.rcgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.rc{display:flex;flex-direction:column;background:#fff;border-radius:28px;overflow:hidden;color:var(--ink);text-decoration:none !important;box-shadow:0 14px 40px rgba(10,10,20,.08);transition:transform .25s,box-shadow .25s}
+.rc:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(10,10,20,.13)}
+.rc-th{aspect-ratio:3/2;background:repeating-linear-gradient(45deg,#e2e2f6,#e2e2f6 12px,#ececfa 12px,#ececfa 24px);overflow:hidden}
+.rc-th img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.rc:hover .rc-th img{transform:scale(1.04)}
+.rc-b{padding:22px 24px 18px;flex:1}
+.rc-b small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.rc-b b{display:block;font-size:20px;line-height:1.2;font-weight:600;font-family:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif}
+.rc-m{display:flex;gap:8px;align-items:center;padding:14px 24px;border-top:1px solid #ececf2;font-size:14px;color:var(--muted)}
+.rc-m i{font-style:normal}
+.rc-all{text-align:center;margin:44px 0 0}
+.rc-btn{display:inline-block;border:1.5px solid var(--blue);color:var(--blue);border-radius:14px;padding:16px 34px;font-weight:600;text-decoration:none !important;transition:background .2s,color .2s}
+.rc-btn:hover{background:var(--blue);color:#fff}
+@media(max-width:900px){.rcgrid{grid-template-columns:1fr;gap:20px}.seguir{padding-bottom:60px}}
+
+/* pie de página bajo el vídeo de un artículo */
+.avid+.vcap{font-size:14px;line-height:1.5;color:var(--muted);margin:-18px 0 30px;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+
+/* blog: botón "Ver más" */
+.bmore-wrap{text-align:center;margin:44px 0 0}
+.bmore-wrap[hidden]{display:none}
+button.rc-btn{background:transparent;font:inherit;font-weight:600;cursor:pointer}
+
+/* pie de página bajo tablas y gráficos de los artículos */
+.tcap{font-size:14px;line-height:1.5;color:var(--muted);margin:-14px 0 30px;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}

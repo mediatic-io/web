@@ -29,9 +29,9 @@ function initPlane(cv,opt){
   function tick(ts){
     const t=ts/1000,dt=Math.min(.05,t-t0||.016);t0=t;
     const tx=mouse?mouse.x:W*(.5+.38*Math.sin(t*.45)),ty=mouse?mouse.y:H*(.55+.28*Math.sin(t*.9));
-    if(!(still&&!mouse)){V.x+=(tx-P.x)*3.2*dt;V.y+=(ty-P.y)*3.2*dt;V.x*=.93;V.y*=.93;P.x+=V.x*dt*8;P.y+=V.y*dt*8}
+    if(!(still&&!mouse)){V.x+=(tx-P.x)*3.2*dt;V.y+=(ty-P.y)*3.2*dt;const dmp=Math.pow(.93,dt*60);V.x*=dmp;V.y*=dmp;P.x+=V.x*dt*8;P.y+=V.y*dt*8}
     const sp=Math.hypot(V.x,V.y);
-    if(sp>3){let a=Math.atan2(V.y,V.x),d=a-ang;d=Math.atan2(Math.sin(d),Math.cos(d));ang+=d*.12}
+    if(sp>3){let a=Math.atan2(V.y,V.x),d=a-ang;d=Math.atan2(Math.sin(d),Math.cos(d));ang+=d*(1-Math.pow(.88,dt*60))}
     let draw=ang;
     if(loop>0){loop+=dt*1.6;draw=ang-(loop-1)*Math.PI*2;if(loop>=2)loop=0}
     trail.push({x:P.x,y:P.y,t});

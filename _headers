@@ -1,0 +1,12 @@
+# Netlify: caché larga para tipografías, imágenes, CSS y JS (los archivos llevan ?v= y cambian al reconstruir)
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+/img/*
+  Cache-Control: public, max-age=2592000
+/styles.css
+  Cache-Control: public, max-age=86400
+/*.js
+  Cache-Control: public, max-age=86400
+/*
+  X-Content-Type-Options: nosniff

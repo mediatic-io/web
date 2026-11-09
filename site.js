@@ -14,8 +14,9 @@ function initPlane(cv,opt){
   const ctx=cv.getContext('2d'),hero=cv.parentElement;
   const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let W,H,dpr;
-  const size=()=>{dpr=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)};
+  const size=()=>{dpr=Math.min(devicePixelRatio||1,1.5);W=hero.clientWidth;H=hero.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0)};
   size();addEventListener('resize',size);
+  let run=true,raf=0;
   const pts=[[1545,590],[342,942],[648,1060],[681,1180],[826,1082],[921,1455]];
   const flapPts=[[648,1060],[681,1180],[826,1082]];
   const cx0=860,cy0=1040,rot=Math.atan2(590-cy0,1545-cx0),S=.08;
@@ -25,7 +26,7 @@ function initPlane(cv,opt){
   if(useMouse)hero.addEventListener('mousemove',e=>{const r=hero.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top}});
   if(useMouse)hero.addEventListener('mouseleave',()=>{mouse=null});
   if(useMouse)hero.addEventListener('click',e=>{if(!e.target.closest('a,button,input,textarea,label,iframe'))loop=1});
-  (function tick(ts){
+  function tick(ts){
     const t=ts/1000,dt=Math.min(.05,t-t0||.016);t0=t;
     const tx=mouse?mouse.x:W*(.5+.38*Math.sin(t*.45)),ty=mouse?mouse.y:H*(.55+.28*Math.sin(t*.9));
     if(!(still&&!mouse)){V.x+=(tx-P.x)*3.2*dt;V.y+=(ty-P.y)*3.2*dt;V.x*=.93;V.y*=.93;P.x+=V.x*dt*8;P.y+=V.y*dt*8}
@@ -41,12 +42,15 @@ function initPlane(cv,opt){
     ctx.setLineDash([]);
     ctx.save();ctx.translate(P.x,P.y);ctx.rotate(draw);
     ctx.scale(1,1-Math.max(-.5,Math.min(.5,sp*.004))*.4);
-    ctx.shadowColor='rgba(27,27,203,.35)';ctx.shadowBlur=24;ctx.shadowOffsetY=18;
+    ctx.shadowColor='rgba(27,27,203,.30)';ctx.shadowBlur=12;ctx.shadowOffsetY=10;
     ctx.fillStyle='#1B1BCB';ctx.fill(plane);
     ctx.shadowColor='transparent';ctx.fillStyle='#5a5ae6';ctx.fill(fold);
     ctx.restore();
-    requestAnimationFrame(tick);
-  })(0);
+    raf=run?requestAnimationFrame(tick):0;
+  }
+  // pausa la animación cuando el avión no está en pantalla
+  if('IntersectionObserver' in window)new IntersectionObserver(es=>{run=es[0].isIntersecting;if(run&&!raf)raf=requestAnimationFrame(tick)},{rootMargin:'100px'}).observe(hero);
+  raf=requestAnimationFrame(tick);
 }
 const _f1=document.getElementById('fly');if(_f1)initPlane(_f1);
 const _f2=document.getElementById('fly2');if(_f2)initPlane(_f2,{mouse:false});
@@ -122,7 +126,7 @@ document.querySelectorAll('.member').forEach(m=>m.addEventListener('click',e=>{e
 (function(){var f=document.querySelector('.bfilter');if(!f)return;var posts=[].slice.call(document.querySelectorAll('.post[data-cat]'));
 f.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var c=b.getAttribute('data-cat');
 [].forEach.call(f.querySelectorAll('button'),function(x){x.classList.toggle('on',x===b)});
-posts.forEach(function(p){p.hidden=!!c&&p.getAttribute('data-cat')!==c})})})();
+var n=0;posts.forEach(function(p){var h=!!c&&p.getAttribute('data-cat')!==c;p.hidden=h;if(!h)n++});var e=document.querySelector('.bempty');if(e)e.hidden=n>0})})();
 
 /* blog: el vídeo del artículo se reproduce en su sitio (youtube-nocookie) */
 (function(){document.querySelectorAll('.avid[data-vid]').forEach(function(b){function go(){if(b.classList.contains('on'))return;b.classList.add('on');

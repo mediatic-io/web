@@ -1,4 +1,4 @@
-import re
+import re,glob
 import time
 V=str(int(time.time()))
 import os
@@ -21,13 +21,71 @@ SEO={
 # En SEO[...][2]: True = se indexa; False = noindex (blog hasta tener artículos reales, 404 siempre)
 CRUMBS={'equipo.html':'Equipo','clientes.html':'Clientes','blog.html':'Blog','contrataciones.html':'Contrataciones','aviso-legal.html':'Aviso Legal','politica-privacidad.html':'Política de Privacidad','politica-cookies.html':'Política de Cookies'}
 
-ART_META={'mitos-redes-sociales.html':dict(
- title='Mitos de las redes sociales: qué importa y qué no | Mediatic',
- desc='¿Importa la hora de publicar? ¿Y los hashtags? Desmontamos los mitos de Instagram y las redes sociales con casos reales de clientes de una agencia de contenido.',
- h1='Mitos de las redes sociales: lo que importa de verdad (y lo que no) para vender',
- cat='Contenido orgánico',date='2026-11-07',fecha='7 de noviembre de 2026',mins=8,yt='kX7RTLibXrs',
- thumb='img/blog/mitos-redes-sociales.jpg',
- excerpt='La hora de publicación, los hashtags, viral o nicho… Respondemos a las dudas más frecuentes sobre Instagram con ejemplos reales de clientes.')}
+ART_META={'mitos-de-instagram.html':dict(
+ title='Mitos de Instagram: 6 falsas verdades que frenan tu negocio',
+ desc='Descubre los 6 mitos de Instagram que frenan a tu negocio: hora, hashtags, viralidad y ventas. Te contamos qué funciona de verdad. Lee la guía completa.',
+ h1='Mitos de Instagram: 6 falsas verdades que frenan a tu negocio',
+ cat='Consejos',date='2026-04-21',fecha='21 de abril de 2026',mins=11,yt='kX7RTLibXrs',
+ thumb='img/blog/mitos-de-instagram.jpg',
+ excerpt='La hora, los hashtags, la viralidad y las ventas: repasamos los seis mitos de Instagram que más escuchamos y qué funciona de verdad.')}
+
+ART_META['gamma-pmu-congress-2026.html']=dict(
+ title='Gamma PMU Congress 2026: Mediatic, ponente en San Sebastián',
+ desc='Roger y Esteve, fundadores de Mediatic, explicaron en el Gamma PMU Congress 2026 cómo vender con contenido en redes sociales. Así fue la ponencia.',
+ h1='Mediatic, ponente en el Gamma PMU Congress 2026',
+ cat='Noticias',date='2026-11-01',fecha='1 de noviembre de 2026',mins=3,
+ thumb='img/blog/gamma-pmu-congress-2026.jpg',
+ excerpt='Roger y Esteve, fundadores de Mediatic, presentaron su ponencia sobre cómo convertir el contenido de Instagram en ventas ante más de 100 asistentes en San Sebastián.')
+ART_META['mediatic-cumple-2-anos.html']=dict(
+ title='Mediatic cumple 2 años | Agencia de contenido para redes',
+ desc='Roger y Esteve fundaron Mediatic en 2024. Dos años después: más de 30 clientes, más de 8 personas en el equipo y 300 millones de reproducciones.',
+ h1='Mediatic cumple 2 años',
+ cat='Noticias',date='2026-07-12',fecha='12 de julio de 2026',mins=5,
+ thumb='img/blog/mediatic-cumple-2-anos-thumb.jpg',
+ excerpt='Repasamos cómo nacieron Roger y Esteve con Mediatic, cómo ha crecido la agencia en dos años y hacia dónde quiere ir.')
+ART_META['opciones-marketing-2026.html']=dict(
+ title='Opciones de marketing para este 2026: cuál elegir',
+ desc='Descubre las opciones de marketing para este 2026: SEO, publicidad, radio, influencers y redes sociales. Ventajas, inconvenientes y cuál elegir.',
+ h1='Opciones de marketing para este 2026: cuál conviene a tu empresa',
+ cat='Consejos',date='2026-03-31',fecha='31 de marzo de 2026',mins=10,
+ thumb='img/blog/opciones-de-marketing-2026.jpg',
+ excerpt='SEO, publicidad, prensa, radio, email, influencers, ferias y redes sociales: repasamos sus ventajas e inconvenientes para que decidas dónde invertir en 2026.')
+ART_META['pmu-paradise.html']=dict(
+ title='Mediatic en PMU Paradise 2026: nuestra ponencia en Tenerife',
+ desc='Roger y Esteve, fundadores de Mediatic, impartieron «Revive tu Instagram» en PMU Paradise 2026, en Tenerife: una ponencia con taller de guiones incluido.',
+ h1='PMU Paradise 2026: la primera ponencia de Mediatic, en Tenerife',
+ cat='Noticias',date='2026-05-31',fecha='31 de mayo de 2026',mins=4,
+ thumb='img/blog/mediatic-pmu-paradise-2026-ponencia.jpg',
+ excerpt='Roger y Esteve impartieron «Revive tu Instagram», su primera ponencia en un congreso, con un taller de guiones, ante unos 50 asistentes en Tenerife.')
+ART_META['de-profundis.html']=dict(
+ title='Caso de éxito en Instagram: De Profundis y el buceo técnico',
+ desc='Así pasó De Profundis de menos de 1.000 seguidores a más de 6.200 y clientes diarios por Instagram, con menos de 6 horas cada tres meses. Descubre cómo.',
+ h1='Caso de éxito: De Profundis',
+ cat='Casos de éxito',date='2026-04-14',fecha='14 de abril de 2026',mins=6,
+ thumb='img/blog/de-profundis.jpg',
+ excerpt='De Profundis pasó de menos de 1.000 seguidores a más de 6.200 y a recibir clientes cada día, con menos de 6 horas de dedicación cada tres meses.')
+def _draft(f,h1,cat,desc,date=None,fecha=None):
+    d=dict(title=h1+' | Mediatic',desc=desc,h1=h1,cat=cat,draft=True,thumb='img/blog/%s.jpg'%f[:-5],excerpt='Próximamente.')
+    if date: d.update(date=date,fecha=fecha)
+    return d
+ART_META.update({
+ 'mejores-agencias-contenido-barcelona.html':_draft('mejores-agencias-contenido-barcelona.html','Las 5 mejores agencias de contenido de Barcelona','Consejos','Las 5 mejores agencias de contenido de Barcelona.','2026-11-08','8 de noviembre de 2026'),
+
+ 'caso-exito-marina-garrido.html':_draft('caso-exito-marina-garrido.html','Caso de éxito: Dra. Marina Garrido','Casos de éxito','Caso de éxito: Dra. Marina Garrido.','2026-08-02','2 de agosto de 2026'),
+ 'caso-exito-manuel-costina.html':_draft('caso-exito-manuel-costina.html','Caso de éxito: Manuel Costiña','Casos de éxito','Caso de éxito: Manuel Costiña.','2026-10-25','25 de octubre de 2026'),
+ 'caso-exito-gisela-jorba.html':_draft('caso-exito-gisela-jorba.html','Caso de éxito: Gisela Jorba','Casos de éxito','Caso de éxito: Gisela Jorba.','2026-09-15','15 de septiembre de 2026'),
+ 'caso-exito-mario-cozma.html':_draft('caso-exito-mario-cozma.html','Caso de éxito: Mario Cozma','Casos de éxito','Caso de éxito: Mario Cozma.','2026-06-30','30 de junio de 2026'),
+
+ 'descripcion-reels-instagram.html':_draft('descripcion-reels-instagram.html','Cómo escribir la descripción de un reel de Instagram','Consejos','Cómo escribir la descripción de un reel de Instagram.','2026-07-14','14 de julio de 2026'),
+ 'servicios.html':_draft('servicios.html','Servicios de contenido para empresas','Noticias','Servicios de contenido para redes sociales para empresas.','2026-11-30','30 de noviembre de 2026'),
+})
+GAL_ALTS={'img/blog/de-profundis-resultados-reels':[
+ 'Reel de De Profundis con 144 mil visualizaciones: cómo hacer una parada de descompresión paso a paso',
+ 'Reel de De Profundis con 143 mil visualizaciones: el nitrox sirve para bucear',
+ 'Reel de De Profundis con 98,2 mil visualizaciones: ranking de mejores lugares para buceo',
+ 'Reel de De Profundis con 199 mil visualizaciones: gas para buceo']}
+RELATED={'pmu-paradise.html':['gamma-pmu-congress-2026.html','opciones-marketing-2026.html'],'opciones-marketing-2026.html':['mitos-de-instagram.html','de-profundis.html'],'mediatic-cumple-2-anos.html':['de-profundis.html','gamma-pmu-congress-2026.html'],'mitos-de-instagram.html':['de-profundis.html','gamma-pmu-congress-2026.html','descripcion-reels-instagram.html','servicios.html'],'de-profundis.html':['mitos-de-instagram.html','servicios.html'],'gamma-pmu-congress-2026.html':['mitos-de-instagram.html','servicios.html']}
+ART_META=dict(sorted(ART_META.items(),key=lambda kv:kv[1].get('date',''),reverse=True))
 def canon(file): return SITE+('/' if file=='index.html' else '/'+file)
 def esc(t): return t.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')
 def jsonld(file,title,desc):
@@ -40,9 +98,9 @@ def jsonld(file,title,desc):
     if file in ART_META:
         a=ART_META[file]
         graph.append({"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"Blog","item":canon('blog.html')},{"@type":"ListItem","position":3,"name":a['h1'],"item":canon(file)}]})
-        graph.append({"@type":"BlogPosting","@id":canon(file)+"#article","mainEntityOfPage":{"@id":canon(file)+"#webpage"},"headline":a['h1'],"description":a['desc'],"datePublished":a['date'],"dateModified":a['date'],"inLanguage":"es-ES","author":{"@id":SITE+"/#organization"},"publisher":{"@id":SITE+"/#organization"},"image":SITE+("/"+a['thumb'] if os.path.exists(os.path.join(OUT,a['thumb'])) else "/img/og-image.jpg"),"articleSection":a['cat']})
+        if not a.get('draft'): graph.append({"@type":"BlogPosting","@id":canon(file)+"#article","mainEntityOfPage":{"@id":canon(file)+"#webpage"},"headline":a['h1'],"description":a['desc'],"datePublished":a['date'],"dateModified":a['date'],"inLanguage":"es-ES","author":{"@id":SITE+"/#organization"},"publisher":{"@id":SITE+"/#organization"},"image":SITE+("/"+a['thumb'] if os.path.exists(os.path.join(OUT,a['thumb'])) else "/img/og-image.jpg"),"articleSection":a['cat']})
         _q=re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>',open(os.path.join(OUT,'_build','articulos',file),'r').read())
-        if _q: graph.append({"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub('<[^>]+>','',a2)}} for q,a2 in _q]})
+        if _q and not a.get('draft'): graph.append({"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub('<[^>]+>','',a2)}} for q,a2 in _q]})
     if file=='index.html':
         exec(open('/Users/mediaticmac/landing-page/web/_build/faq_data.py').read(),globals())
         graph.append({"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in FAQ_DATA]})
@@ -76,7 +134,7 @@ FOOT='''<footer><div class="wrap">
 def page(file,title,body):
     st,desc,index=SEO.get(file,(title,'',True))
     robots='index,follow,max-image-preview:large' if index else 'noindex,follow'
-    cls=' class="mfaq"' if body.rstrip().endswith('</section>') and 'faq-blue' in body[-1500:] else ''
+    cls=' class="mfaq"' if 'faq-blue' in body[-12000:] and body.rstrip().endswith('</section>') else ''
     html=f'''<!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(st)}</title>
@@ -111,11 +169,11 @@ CLIENTES_NOMBRES={1: 'Manuel Costiña', 2: 'UPC', 3: 'Holcim', 4: 'Condis', 5: '
 CLIENTES_FRASES={1: 'Chef', 2: 'Universidad politécnica pública', 3: 'Soluciones de construcción', 4: 'Supermercados desde 1961', 5: 'Creador con +1M en YouTube', 6: 'Podcast de emprendimiento', 7: 'Creador gastro, +500K en YouTube', 8: 'Productos lácteos', 9: 'Banco de sangre de Catalunya', 10: 'Dermocosmética francesa', 11: 'Grupo empresarial', 12: 'Inmobiliaria', 13: 'Electrónica y electrodomésticos', 14: 'Sistemas de seguridad', 15: 'Tostadores de café', 16: 'Creador de contenido', 17: 'Asesoría financiera', 18: 'Instituto de comunicación', 19: 'Instituto de marca personal', 20: 'Experto SEO, +500K seguidores', 21: 'Experta en micropigmentación', 22: 'Buceo técnico', 23: 'Transporte y logística, +70K', 24: 'Peluquería en Manresa', 25: 'Tienda online de cocina', 26: 'Marca personal', 27: 'Ingredientes para gastronomía', 28: 'Escuela de baile', 29: 'Impresión online', 30: 'Agencia SEO en Barcelona', 31: 'Clínica dental', 32: 'Soluciones láser industriales', 33: 'Marca de colchones'}
 def card(n,dup=False):
     nm=CLIENTES_NOMBRES[n].replace('&','&amp;')
-    return ('<div class="cl"%s><div class="ph"><img src="img/clientes/c%02d.jpg" alt="%s" width="480" height="480" decoding="async"></div><p class="cn">%s</p><p>%s</p></div>'
+    return ('<div class="cl"%s><div class="ph"><img src="img/clientes/c%02d.jpg" alt="%s" width="320" height="320" decoding="async"></div><p class="cn">%s</p><p>%s</p></div>'
             %(' aria-hidden="true"' if dup else '',n,'' if dup else nm,nm,CLIENTES_FRASES[n]))
 r1=''.join(card(n) for n in CLIENTES_ORDEN)
 r1d=''.join(card(n,True) for n in CLIENTES_ORDEN)
-MARQ='<div class="marquee"><div class="track">%s%s%s</div></div>'%(r1,r1d,r1d)
+MARQ='<div class="marquee"><div class="track">%s%s</div></div>'%(r1,r1d)
 SERV='''<div class="cards3">
  <div class="card"><div class="ico"></div><span class="chip">Done for you</span><h3>Servicio 1</h3><p class="d">[Descripción corta del servicio completo.]</p><ul><li>Beneficio 1</li><li>Beneficio 2</li><li>Beneficio 3</li><li>Beneficio 4</li></ul><a class="btn" href="index.html#contacto" data-link="servicios-1">Quiero saber más <i>→</i></a></div>
  <div class="card"><div class="ico"></div><span class="chip">Consultoría</span><h3>Servicio 2</h3><p class="d">[Descripción corta del servicio de estrategia.]</p><ul><li>Beneficio 1</li><li>Beneficio 2</li><li>Beneficio 3</li></ul><a class="btn" href="index.html#contacto" data-link="servicios-2">Quiero saber más <i>→</i></a></div>
@@ -146,8 +204,8 @@ RESULTS=('<section class="results" id="opiniones"><div class="wrap"><div class="
  '<div class="rgrid">'+''.join(_card(t) for t in _E)+'</div></div></section>')
 _RES_ROWS=[[1, 37, 73, 34, 70, 31, 67, 28, 64, 25, 61, 22, 58, 19, 55, 16, 52, 13, 49, 10, 46, 7, 43, 4, 40], [26, 62, 23, 59, 20, 56, 17, 53, 14, 50, 11, 47, 8, 44, 5, 41, 2, 38, 74, 35, 71, 32, 68, 29, 65], [15, 51, 12, 48, 9, 45, 6, 42, 3, 39, 75, 36, 72, 33, 69, 30, 66, 27, 63, 24, 60, 21, 57, 18, 54]]
 def _rrow(ids,rev):
-    cards=''.join('<div class="rr"><img src="img/resultados/v%02d.jpg" alt="Vídeo de resultados de un cliente de Mediatic" width="360" height="563" loading="lazy" decoding="async"></div>'%i for i in ids)
-    dup=''.join('<div class="rr" aria-hidden="true"><img src="img/resultados/v%02d.jpg" alt="" width="360" height="563" loading="lazy" decoding="async"></div>'%i for i in ids)
+    cards=''.join('<div class="rr"><img src="img/resultados/v%02d.jpg" alt="Vídeo de resultados de un cliente de Mediatic" width="300" height="469" loading="lazy" decoding="async"></div>'%i for i in ids)
+    dup=''.join('<div class="rr" aria-hidden="true"><img src="img/resultados/v%02d.jpg" alt="" width="300" height="469" loading="lazy" decoding="async"></div>'%i for i in ids)
     return '<div class="rrow"><div class="rtrack%s">%s%s</div></div>'%(' rev' if rev else '',cards,dup)
 RES2=('<section class="reels" id="resultados"><div class="wrap"><div class="reels-box">'
  '<div class="reels-head"><div class="tag">Resultados</div>'
@@ -201,7 +259,7 @@ page('index.html','Mediatic | Agencia de contenido orgánico',f'''
  <h1>Agencia de <span class="acc">contenido viral</span><br>en Barcelona</h1>
  <p class="hero-sub">Multiplicamos <b class="hl">x5</b> tus <b class="hl">visitas</b> y <b class="hl">leads</b><br>en Instagram con menos de 5h al mes</p>
  <a class="btn" href="index.html#contacto" data-link="hero">Quiero conseguir estos resultados <i>→</i></a></div><canvas id="fly"></canvas></section>
-<section class="team-photo-sec"><div class="wrap"><div class="team-photo-wrap"><div class="team-photo">Foto de equipo</div>
+<section class="team-photo-sec"><div class="wrap"><div class="team-photo-wrap"><div class="team-photo has-img"><img src="img/equipo-foto.jpg" alt="Roger y Esteve, fundadores de Mediatic, con el público tras su ponencia" width="1280" height="720" decoding="async"></div>
  <div class="stats">
   <div class="stat"><b><span class="pl">+</span><span class="cnt" data-to="100">100</span></b><span>Clientes satisfechos</span></div>
   <div class="stat"><b><span class="pl">+</span><span class="cnt" data-to="300" data-suf="M">300M</span></b><span>Millones de views</span></div>
@@ -217,27 +275,53 @@ page('equipo.html','Equipo | Mediatic',head('Equipo','¿Quién está detrás de 
 
 page('clientes.html','Clientes | Mediatic',head('Clientes','Estos son nuestros <span class="strike">clientes</span> <span class="hand">amigos</span>','Negocios, marcas y creadores que ya crecen en redes sociales con Mediatic.')+f'<section><div class="wrap">{MARQ}</div></section>{RESULTS}{RES2}{REVIEWS}')
 
-BLOG_CATS=['Contenido orgánico','Instagram y TikTok','Agencia y equipo']
+BLOG_CATS=['Noticias','Consejos','Casos de éxito']
 def _post(i):
     return f'<a class="post" href="#" data-cat="{BLOG_CATS[(i-1)%3]}"><div class="th"></div><div class="c">{BLOG_CATS[(i-1)%3]}</div><h3>[Título del artículo {i}]</h3><p class="sub" style="font-size:16px">[Resumen de 1–2 líneas del artículo.]</p></a>'
 def _real(f,a):
+    soon=' · Próximamente' if a.get('draft') else ''
+    dt='<time class="pdate" datetime="%s">%s</time>'%(a['date'],a['fecha']) if a.get('date') else ''
     th='<div class="th" style="background:url(%s) center/cover"></div>'%a['thumb'] if os.path.exists(os.path.join(OUT,a['thumb'])) else '<div class="th"></div>'
-    return f'<a class="post" href="{f}" data-cat="{a["cat"]}">{th}<div class="c">{a["cat"]}</div><h3>{a["h1"]}</h3><p class="sub" style="font-size:16px">{a["excerpt"]}</p></a>'
+    return f'<a class="post" href="{f}" data-cat="{a["cat"]}">{th}<div class="c">{a["cat"]}{soon}</div><h3>{a["h1"]}</h3><p class="sub" style="font-size:16px">{a["excerpt"]}</p>{dt}</a>'
 posts=''.join(_real(f,a) for f,a in ART_META.items())
 bfilter='<div class="bfilter" role="group" aria-label="Filtrar artículos por categoría"><button type="button" class="on" data-cat="">Todos</button>'+''.join(f'<button type="button" data-cat="{c}">{c}</button>' for c in BLOG_CATS)+'</div>'
-page('blog.html','Blog | Mediatic',head('Blog','Noticias y artículos de <span class="acc">Mediatic</span>','Últimas noticias y novedades sobre el funcionamiento del contenido orgánico, para que aprendas y apliques en tu negocio. Y también las noticias y logros de la agencia y su equipo.')+f'<section><div class="wrap">{bfilter}<h2 class="sr-only">Últimos artículos del blog</h2><div class="posts">{posts}</div></div></section>'+FAQ_BLUE)
+page('blog.html','Blog | Mediatic',head('Blog','Noticias y artículos de <span class="acc">Mediatic</span>','Últimas noticias y novedades sobre el funcionamiento del contenido orgánico, para que aprendas y lo apliques en tu negocio. También verás las noticias y logros de la agencia.')+f'<section><div class="wrap">{bfilter}<h2 class="sr-only">Últimos artículos del blog</h2><div class="posts">{posts}</div><p class="bempty" hidden>Todavía no hay artículos en esta categoría. Muy pronto publicaremos novedades.</p></div></section>'+FAQ_BLUE)
 
 # ---- artículos del blog ----
 for _f,_a in ART_META.items():
-    SEO[_f]=(_a['title'],_a['desc'],True)
+    SEO[_f]=(_a['title'],_a['desc'],not _a.get('draft'))
     _body=open(os.path.join(OUT,'_build','articulos',_f)).read()
-    _vid=('<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir el vídeo: %s">%s<span class="rplay">&#9654;</span></div>'%(_a['yt'],esc(_a['h1']),('<img src="%s" alt="Vídeo: %s" width="1280" height="720" loading="lazy" decoding="async">'%(_a['thumb'],esc(_a['h1']))) if os.path.exists(os.path.join(OUT,_a['thumb'])) else ''))
-    _body=_body.replace('<!--VIDEO-->',_vid)
+    _vid=('<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir el vídeo: %s">%s<span class="rplay">&#9654;</span></div>'%(_a.get('yt',''),esc(_a['h1']),('<img src="%s" alt="Vídeo: %s" width="1280" height="720" loading="lazy" decoding="async">'%(_a['thumb'],esc(_a['h1']))) if os.path.exists(os.path.join(OUT,_a['thumb'])) else ''))
+    _body=_body.replace('<!--VIDEO-->',_vid if _a.get('yt') else '')
+    def _vid2(m):
+        vid=m.group(1);th='img/entrevistas/%s.jpg'%vid
+        im='<img src="%s" alt="Entrevista en vídeo" width="640" height="360" loading="lazy" decoding="async">'%th if os.path.exists(os.path.join(OUT,th)) else ''
+        return '<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir la entrevista en vídeo">%s<span class="rplay">&#9654;</span></div>'%(vid,im)
+    _body=re.sub(r'<!--VIDEO:([\w-]+)-->',_vid2,_body)
+    def _photo(m):
+        src,alt,cap,cred=m.group(1).split('|')
+        base=src[:-4]
+        _g=sorted(glob.glob(os.path.join(OUT,base+'-[0-9].jpg')))
+        if _g:
+            _alts=GAL_ALTS.get(base,[])
+            _im=''.join('<img src="%s" alt="%s" loading="lazy" decoding="async">'%(os.path.relpath(p,OUT),esc(_alts[k] if k<len(_alts) else alt)) for k,p in enumerate(_g))
+            return '<figure class="photo gal">%s%s</figure>'%(_im,('<figcaption>%s</figcaption>'%esc(cap)) if cap else '')
+        if not os.path.exists(os.path.join(OUT,src)): return ''
+        return '<figure class="photo%s"><img src="%s" alt="%s" loading="lazy" decoding="async">%s</figure>'%((' shot' if 'de-profundis-instagram-' in src else ''),src,esc(alt),(('<figcaption>%s%s</figcaption>'%(esc(cap),('<br><span>Foto: %s</span>'%esc(cred)) if cred else ''))) if cap else '')
+    _body=re.sub(r'<!--PROV:([^>]*?)-->',lambda m:'<figure class="photo prov" role="img" aria-label="%s"><div>Imagen provisional</div></figure>'%esc(m.group(1)),_body)
+    _body=re.sub(r'<!--PHOTO:([^>]*?)-->',_photo,_body)
+    _ks=list(ART_META);_i=_ks.index(_f)
+    def _lk(k,lab):
+        a2=ART_META[k];return '<a class="anx" href="%s"><small>%s</small><b>%s</b>%s</a>'%(k,lab,a2['h1'],'<em>Próximamente</em>' if a2.get('draft') else '')
+    _more=('<div class="acta nav"><span>Sigue leyendo</span>'+(_lk(_ks[_i-1],'← Más reciente') if _i>0 else '')+(_lk(_ks[_i+1],'Más antiguo →') if _i<len(_ks)-1 else '')+'</div>') if len(_ks)>1 else ''
     _aside=('<aside class="aside" aria-label="Contacto"><div class="aside-in">'
       '<div class="acta hl"><span>Crece con nosotros</span><h2>¿Hablamos de tu proyecto?</h2><p>Te decimos si podemos multiplicar por 5 tus visitas y leads con menos de 5 horas al mes.</p><a class="btn" href="index.html#contacto" data-link="blog-lateral">Agendar diagnóstico <i>→</i></a></div>'
-      '</div></aside>')
-    _head=('<section class="page-head art-head"><div class="wrap"><nav class="crumbs" aria-label="Migas de pan"><a href="index.html">Home</a><i>›</i><a href="blog.html">Blog</a><i>›</i><span aria-current="page">%s</span></nav><h1>%s</h1><p class="byline">%s · Por el equipo de <b>Mediatic</b> · <time datetime="%s">%s</time> · %d min de lectura</p></div></section>'%(_a['h1'],_a['h1'],_a['cat'],_a['date'],_a['fecha'],_a['mins']))
-    page(_f,_a['h1'],_head+'<section class="art"><div class="wrap art-grid"><article class="prose">'+_body+'</article>'+_aside+'</div></section>')
+      +_more+'</div></aside>')
+    _head=('<section class="page-head art-head"><div class="wrap"><nav class="crumbs" aria-label="Migas de pan"><a href="index.html">Home</a><i>›</i><a href="blog.html">Blog</a><i>›</i><span aria-current="page">%s</span></nav><h1>%s</h1><p class="byline">%s</p></div></section>'%(_a['h1'],_a['h1'],(_a['cat']+' · Próximamente'+((' · '+_a['fecha']) if _a.get('fecha') else '')) if _a.get('draft') else '%s · Por el equipo de <b>Mediatic</b> · <time datetime="%s">%s</time> · %d min de lectura'%(_a['cat'],_a['date'],_a['fecha'],_a['mins'])))
+    _rel=''
+    if _f in RELATED:
+        _rel='<section class="related" aria-labelledby="rel-h"><h2 id="rel-h">Artículos relacionados</h2><div class="relgrid">'+''.join('<a class="relc" href="%s"><small>%s%s</small><b>%s</b></a>'%(k,ART_META[k]['cat'],' · Próximamente' if ART_META[k].get('draft') else '',ART_META[k]['h1']) for k in RELATED[_f])+'</div></section>'
+    page(_f,_a['h1'],_head+'<section class="art"><div class="wrap art-grid"><article class="prose">'+_body+_rel+'</article>'+_aside+'</div></section>')
 
 
 # ---- PÁGINAS LEGALES (texto copiado tal cual de legal.mediatic.io) ----

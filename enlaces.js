@@ -7,11 +7,12 @@ window.MEDIATIC = {
   DESTINO_POR_DEFECTO: 'index.html#contacto',
 
   ENLACES: {
-    'cabecera':     '',  // Botón de arriba a la derecha: "Agendar llamada" (sale en todas las páginas)
+    'cabecera':     'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-sup-ag-lla',  // Botón de arriba a la derecha: "Agendar llamada" (sale en todas las páginas)
     'contrataciones':'', // Opción "Contrataciones" del menú de arriba
-    'hero':         '',  // Botón del inicio: "Quiero conseguir estos resultados"
-    'quienes-somos':'',  // Botón de ¿Quiénes somos?: "Quiero que trabajemos juntos"
-    'resultados':   '',  // Botón del bloque azul de reels: "Quiero estos resultados"
+    'hero':         'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-qro-resul',  // Botón del inicio: "Quiero conseguir estos resultados"
+    'quienes-somos':'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-qin-som',  // Botón de ¿Quiénes somos?: "Quiero que trabajemos juntos"
+    'resultados':   'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=resul',  // Botón del bloque azul de reels: "Quiero estos resultados"
+    'hablemos':     'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=bt-hablemos',  // Botón de la sección "Hablemos": "Rellenar el formulario"
     'pie':          '',  // Botón "Pedir presupuesto" del pie de página (sale en todas las páginas)
     'blog-lateral': '',  // Botón fijo del lateral de los artículos del blog: "Agendar diagnóstico"
     'blog-articulo':''   // Enlace de texto dentro de los artículos del blog: "agenda una sesión de diagnóstico"
@@ -33,7 +34,7 @@ window.MEDIATIC = {
 
   // Formulario de cualificación que se abre en una pestaña nueva al enviar el formulario corto.
   // Cuando lo publiques, pon aquí su URL completa (por ejemplo https://forms.mediatic.io/).
-  FORMULARIO: '../formulario/index.html',
+  FORMULARIO: 'https://form.mediatic.io/',
 
   // Datos del formulario corto que viajan al formulario largo (nombre, email, teléfono...).
   // Ponlo en false si prefieres que solo viajen las UTM.

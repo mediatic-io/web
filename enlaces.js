@@ -19,6 +19,12 @@ window.MEDIATIC = {
     'blog-de-profundis':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=web-blog-caso-exito-de-profundis',  // Enlace "contacta con Mediatic" del caso de éxito de De Profundis
     'blog-mitos-instagram':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=mitos-instagram',  // Enlace "contacta con Mediatic" del artículo de mitos de Instagram
     'blog-pmu-paradise':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=pmu-paradise',  // Enlace "contacta con Mediatic" del artículo de PMU Paradise
+    'blog-caso-exito-mario-cozma':'https://form.mediatic.io/?utm_source=web&utm_medium=home&utm_campaign=caso-exito-mario',  // Enlace de contacto del caso de éxito de Mario Cozma (también el botón "Agendar diagnóstico" lateral)
+    'blog-cumple-2-anos':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=2-anos',  // Enlace "contacta con el equipo" del artículo Mediatic cumple 2 años (y su botón "Agendar diagnóstico" lateral)
+    'blog-caso-exito-marina-garrido':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=caso-exito-dra-marina-garrido',  // Enlace "cuéntanos tu proyecto" del caso de éxito de la Dra. Marina Garrido (y su botón lateral). Pendiente de enlace con UTM
+    'blog-caso-exito-gisela-jorba':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=caso-exito-gisela-jorba',  // Enlace "cuéntanos tu proyecto" del caso de éxito de Gisela Jorba (y su botón lateral). Pendiente de enlace con UTM
+    'ag-contenido-bcn':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=ag-contenido-bcn',  // Página «Agencia de creación de contenido en Barcelona»: todos sus botones al formulario
+    'blog-guion-perfecto-instagram':'https://form.mediatic.io/?utm_source=web&utm_medium=blog&utm_campaign=guiones-instagram',  // Enlace "agendar una reunión" del artículo del guion perfecto para Instagram (y su botón lateral "Agendar diagnóstico")
     'blog-articulo':''   // Enlace de texto dentro de los artículos del blog: "agenda una sesión de diagnóstico"
   },
 

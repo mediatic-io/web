@@ -63,29 +63,63 @@ ART_META['de-profundis.html']=dict(
  desc='Así pasó De Profundis de menos de 1.000 seguidores a más de 6.200 y clientes diarios por Instagram, con menos de 6 horas cada tres meses. Descubre cómo.',
  h1='Caso de éxito: De Profundis',
  cat='Casos de éxito',date='2026-04-14',fecha='14 de abril de 2026',mins=6,
- thumb='img/blog/de-profundis.jpg',
+ thumb='img/blog/de-profundis-portada.jpg',
  excerpt='De Profundis pasó de menos de 1.000 seguidores a más de 6.200 y a recibir clientes cada día, con menos de 6 horas de dedicación cada tres meses.')
 def _draft(f,h1,cat,desc,date=None,fecha=None):
     d=dict(title=h1+' | Mediatic',desc=desc,h1=h1,cat=cat,draft=True,thumb='img/blog/%s.jpg'%f[:-5],excerpt='Próximamente.')
     if date: d.update(date=date,fecha=fecha)
     return d
 ART_META.update({
- 'mejores-agencias-contenido-barcelona.html':_draft('mejores-agencias-contenido-barcelona.html','Las 5 mejores agencias de contenido de Barcelona','Consejos','Las 5 mejores agencias de contenido de Barcelona.','2026-11-08','8 de noviembre de 2026'),
 
- 'caso-exito-marina-garrido.html':_draft('caso-exito-marina-garrido.html','Caso de éxito: Dra. Marina Garrido','Casos de éxito','Caso de éxito: Dra. Marina Garrido.','2026-08-02','2 de agosto de 2026'),
- 'caso-exito-manuel-costina.html':_draft('caso-exito-manuel-costina.html','Caso de éxito: Manuel Costiña','Casos de éxito','Caso de éxito: Manuel Costiña.','2026-10-25','25 de octubre de 2026'),
- 'caso-exito-gisela-jorba.html':_draft('caso-exito-gisela-jorba.html','Caso de éxito: Gisela Jorba','Casos de éxito','Caso de éxito: Gisela Jorba.','2026-09-15','15 de septiembre de 2026'),
- 'caso-exito-mario-cozma.html':_draft('caso-exito-mario-cozma.html','Caso de éxito: Mario Cozma','Casos de éxito','Caso de éxito: Mario Cozma.','2026-06-30','30 de junio de 2026'),
+ 'caso-exito-marina-garrido.html':dict(
+  title='Caso de éxito: Clínica Dra. Marina Garrido (1,2M de views en 3 meses)',
+  desc='Así llevamos a la Clínica Dra. Marina Garrido a más de 1,2 millones de visualizaciones en tres meses, con 12 vídeos y menos de dos horas al mes.',
+  h1='Caso de éxito: Clínica Dra. Marina Garrido (1,2M de views en 3 meses)',
+  cat='Casos de éxito',date='2026-08-02',fecha='2 de agosto de 2026',mins=7,
+  thumb='img/blog/caso-exito-marina-garrido-portada.jpg',
+  excerpt='Más de 1,2 millones de visualizaciones en tres meses, con 12 vídeos y menos de dos horas al mes de dedicación: así llevamos a la clínica a Instagram y TikTok.'),
+ 'caso-exito-manuel-costina.html':_draft('caso-exito-manuel-costina.html','Caso de éxito: Manuel Costiña','Casos de éxito','Caso de éxito: Manuel Costiña.','2026-11-20','20 de noviembre de 2026'),
+ 'caso-exito-gisela-jorba.html':dict(
+  title='Caso de éxito: Gisela Jorba (de 6.000 a 24.400 seguidores)',
+  desc='Así llevamos a Gisela Jorba de 6.000 a 24.400 seguidores dentro de su nicho, duplicamos su lista de espera y lanzamos su formación con más de 50 ventas.',
+  h1='Caso de éxito: Gisela Jorba (de 6.000 a 24.400 seguidores)',
+  cat='Casos de éxito',date='2026-09-15',fecha='15 de septiembre de 2026',mins=7,
+  thumb='img/blog/caso-exito-gisela-jorba.jpg',
+  excerpt='De 6.000 a 24.400 seguidores dentro de su nicho, lista de espera duplicada y más de 50 ventas en el lanzamiento de su formación online.'),
+ 'caso-exito-mario-cozma.html':dict(
+  title='Caso de éxito: Mario Cozma (+44.000 seguidores)',
+  desc='De 34.000 a 77.700 seguidores: así convertimos a Mario Cozma en el referente del transporte en redes sociales, junto a su podcast Rutas de Éxito.',
+  h1='Caso de éxito: Mario Cozma (+44.000 seguidores)',
+  cat='Casos de éxito',date='2026-06-30',fecha='30 de junio de 2026',mins=9,
+  thumb='img/blog/caso-exito-mario-cozma.jpg',
+  excerpt='Mario Cozma pasó de 34.000 a 77.700 seguidores en Instagram y duplicó su canal de YouTube: así lo hemos convertido en el referente del transporte en redes sociales.'),
 
- 'guion-reels-instagram.html':_draft('guion-reels-instagram.html','Cómo escribir el guion de un reel de Instagram','Consejos','Cómo escribir el guion de un reel de Instagram.','2026-07-14','14 de julio de 2026'),
- 'servicios.html':_draft('servicios.html','Servicios de contenido para empresas','Noticias','Servicios de contenido para redes sociales para empresas.','2026-11-30','30 de noviembre de 2026'),
+ 'guion-perfecto-instagram.html':dict(
+  title='Cómo escribir el guion perfecto para Instagram: el proceso paso a paso',
+  desc='Aprende a escribir el guion perfecto para Instagram: cómo encontrar ideas, validarlas, elegir el formato y adaptar tu guion para que funcione. Paso a paso.',
+  h1='Cómo escribir el guion perfecto para Instagram: el proceso paso a paso',
+  cat='Consejos',date='2026-07-14',fecha='14 de julio de 2026',mins=9,
+  thumb='img/blog/guion-perfecto-instagram.jpg',
+  excerpt='El proceso que seguimos en Mediatic para escribir guiones para Instagram: de las dudas de tus clientes a un guion propio que retenga la atención.'),
+ 'servicios.html':dict(
+  title='Agencia de creación de contenido en Barcelona | Mediatic',
+  desc='Agencia de creación de contenido viral en Barcelona para Instagram y TikTok. Estrategia, guiones, grabación y edición sin permanencia. Pide tu diagnóstico.',
+  h1='Agencia de creación de contenido en Barcelona: para empresas que quieren clientes, no likes',
+  cat='Servicios',date='2026-08-25',fecha='25 de agosto de 2026',mins=7,
+  thumb='img/blog/servicios-portada.jpg',
+  excerpt='Qué hacemos, cómo trabajamos y para quién es nuestro servicio de creación de contenido para redes sociales.'),
 })
-GAL_ALTS={'img/blog/de-profundis-resultados-reels':[
+GAL_ALTS={'img/blog/caso-exito-gisela-jorba-videos':['Reel de Gisela Jorba con 647 mil visualizaciones','Reel de Gisela Jorba con 274 mil visualizaciones','Reel de Gisela Jorba con 272 mil visualizaciones','Reel de Gisela Jorba con 79,8 mil visualizaciones','Reel de Gisela Jorba con 71,8 mil visualizaciones: los tres mejores eyeliners'],
+'img/blog/caso-exito-marina-garrido-videos':['Vídeo de la clínica con 505,8 mil visualizaciones: dos siliconas que se acumulan en el cabello','Vídeo de la clínica con 176 mil visualizaciones: cosas que frenan la caída del pelo','Vídeo de la clínica con 138 mil visualizaciones: ranking de famosos','Vídeo de la clínica con 130,8 mil visualizaciones: un combinado que los una'],
+'img/blog/caso-exito-mario-cozma-videos':['Reel de Mario Cozma con 3 millones de visualizaciones, grabado en las instalaciones de Iveco','Reel de Mario Cozma con 1,6 millones de visualizaciones: ¿necesitas dinero?','Reel de Mario Cozma con 1,5 millones de visualizaciones: preguntas y respuestas a un conductor experto','Reel de Mario Cozma con 1,3 millones de visualizaciones: con qué remolque se gana más dinero en España'],
+'img/blog/caso-exito-mario-cozma-podcast':['Corte de Rutas de Éxito con 1,5 millones de visualizaciones: ¿qué estás cobrando actualmente?','Corte de Rutas de Éxito con 642 mil visualizaciones: en mi empresa todos cobramos lo mismo','Corte de Rutas de Éxito con 615 mil visualizaciones: precio desorbitado, lo urgente nunca es barato','Corte de Rutas de Éxito con 427 mil visualizaciones: ¿cuánto cobra un conductor de autocar?','Corte de Rutas de Éxito con 425 mil visualizaciones: así funciona la contabilidad en Alemania'],
+'img/blog/caso-exito-mario-cozma':['Dos integrantes del equipo de Mediatic con chaleco rosa y una cámara con estabilizador, junto a las instalaciones de Mercedes-Benz en el Circuito del Jarama','Grabación de contenido junto a un camión Scania con bandera de España durante el Gran Premio de España de Camiones','Selfie junto a la pista del Circuito del Jarama con un camión de carreras al fondo'],
+'img/blog/de-profundis-resultados-reels':[
  'Reel de De Profundis con 144 mil visualizaciones: cómo hacer una parada de descompresión paso a paso',
  'Reel de De Profundis con 143 mil visualizaciones: el nitrox sirve para bucear',
  'Reel de De Profundis con 98,2 mil visualizaciones: ranking de mejores lugares para buceo',
  'Reel de De Profundis con 199 mil visualizaciones: gas para buceo']}
-RELATED={'pmu-paradise.html':['gamma-pmu-congress-2026.html','opciones-marketing-2026.html'],'opciones-marketing-2026.html':['mitos-de-instagram.html','de-profundis.html'],'mediatic-cumple-2-anos.html':['de-profundis.html','gamma-pmu-congress-2026.html'],'mitos-de-instagram.html':['de-profundis.html','gamma-pmu-congress-2026.html','guion-reels-instagram.html','servicios.html'],'de-profundis.html':['mitos-de-instagram.html','servicios.html'],'gamma-pmu-congress-2026.html':['mitos-de-instagram.html','servicios.html']}
+RELATED={'guion-perfecto-instagram.html':['mitos-de-instagram.html','pmu-paradise.html','servicios.html'],'pmu-paradise.html':['gamma-pmu-congress-2026.html','opciones-marketing-2026.html'],'opciones-marketing-2026.html':['mitos-de-instagram.html','de-profundis.html'],'mediatic-cumple-2-anos.html':['de-profundis.html','gamma-pmu-congress-2026.html'],'mitos-de-instagram.html':['de-profundis.html','gamma-pmu-congress-2026.html','guion-perfecto-instagram.html','servicios.html'],'de-profundis.html':['mitos-de-instagram.html','servicios.html'],'gamma-pmu-congress-2026.html':['mitos-de-instagram.html','servicios.html']}
 ART_META=dict(sorted(ART_META.items(),key=lambda kv:kv[1].get('date',''),reverse=True))
 def canon(file): return SITE+('/' if file=='index.html' else '/'+file)
 def esc(t): return t.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')
@@ -99,8 +133,12 @@ def jsonld(file,title,desc):
     if file in ART_META:
         a=ART_META[file]
         graph.append({"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"Blog","item":canon('blog.html')},{"@type":"ListItem","position":3,"name":a['h1'],"item":canon(file)}]})
-        if not a.get('draft'): graph.append({"@type":"BlogPosting","@id":canon(file)+"#article","mainEntityOfPage":{"@id":canon(file)+"#webpage"},"headline":a['h1'],"description":a['desc'],"datePublished":a['date'],"dateModified":a['date'],"inLanguage":"es-ES","author":{"@id":SITE+"/#organization"},"publisher":{"@id":SITE+"/#organization"},"image":SITE+("/"+a['thumb'] if os.path.exists(os.path.join(OUT,a['thumb'])) else "/img/og-image.jpg"),"articleSection":a['cat']})
-        _q=re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>',open(os.path.join(OUT,'_build','articulos',file),'r').read())
+        if file=='servicios.html':
+            graph[-1]={"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":SITE+"/"},{"@type":"ListItem","position":2,"name":"Servicios","item":canon(file)}]}
+            graph.append({"@type":"Service","name":"Creación de contenido para redes sociales","serviceType":"Agencia de creación de contenido","provider":{"@id":SITE+"/#organization"},"areaServed":[{"@type":"City","name":"Barcelona"},{"@type":"Country","name":"España"},{"@type":"Country","name":"Andorra"}],"description":"Estrategia, ideas, guiones, grabación, edición, publicación y análisis de vídeos para Instagram y TikTok.","url":canon(file)})
+        elif not a.get('draft'): graph.append({"@type":"BlogPosting","@id":canon(file)+"#article","mainEntityOfPage":{"@id":canon(file)+"#webpage"},"headline":a['h1'],"description":a['desc'],"datePublished":a['date'],"dateModified":a['date'],"inLanguage":"es-ES","author":{"@id":SITE+"/#organization"},"publisher":{"@id":SITE+"/#organization"},"image":SITE+("/"+a['thumb'] if os.path.exists(os.path.join(OUT,a['thumb'])) else "/img/og-image.jpg"),"articleSection":a['cat']})
+        if file=='guion-perfecto-instagram.html': graph.append({"@type":"HowTo","name":"Cómo escribir el guion perfecto para Instagram","step":[{"@type":"HowToStep","position":i+1,"name":n} for i,n in enumerate(["Encuentra ideas de contenido","Valida las ideas","Elige el formato","Escribe la primera versión del guion","Adapta y personaliza el guion"])]})
+        _q=re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>',open(os.path.join(OUT,'_build','servicios_page.html' if file=='servicios.html' else 'articulos/'+file),'r').read())
         if _q and not a.get('draft'): graph.append({"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":re.sub('<[^>]+>','',a2)}} for q,a2 in _q]})
     if file=='index.html':
         exec(open('/Users/mediaticmac/landing-page/web/_build/faq_data.py').read(),globals())
@@ -214,7 +252,7 @@ RES2=('<section class="reels" id="resultados"><div class="wrap"><div class="reel
  '<div class="reels-rows">'+_rrow(_RES_ROWS[0],False)+_rrow(_RES_ROWS[1],True)+_rrow(_RES_ROWS[2],False)+'</div>'
  '<div class="reels-cta"><a class="btn light" href="index.html#contacto" data-link="resultados">Quiero estos resultados <i>→</i></a></div>'
  '</div></div></section>')
-_PEOPLE=[("Roger Gaona","Fundador"),("Esteve Gaona","Fundador"),("Betlem Boixader","Director de edición"),("Anna Martínez","Copywriter"),("Mireia Sallés","Copywriter"),("Gerard Torres","Filmmaker"),("Juan Andrés","Editor"),("Juanjo","Editor")]
+_PEOPLE=[("Roger Gaona","Fundador"),("Esteve Gaona","Fundador"),("Betlem Boixader","Directora de edición"),("Anna Martínez","Copywriter"),("Mireia Sallés","Copywriter"),("Gerard Torres","Filmmaker"),("Juan Andrés","Editor"),("Juanjo","Editor")]
 MTSVG='<svg viewBox="0 0 100 100" aria-hidden="true"><polygon fill="#fff" points="80,28.5 20,46.1 35.3,52 37,58 44.2,53.1 48.9,71.7"/></svg>'
 import unicodedata
 def _slug(n): return re.sub(r'[^a-z0-9]+','-',unicodedata.normalize('NFKD',n).encode('ascii','ignore').decode().lower()).strip('-')
@@ -276,7 +314,7 @@ page('equipo.html','Equipo | Mediatic',head('Equipo','¿Quién está detrás de 
 
 page('clientes.html','Clientes | Mediatic',head('Clientes','Estos son nuestros <span class="strike">clientes</span> <span class="hand">amigos</span>','Negocios, marcas y creadores que ya crecen en redes sociales con Mediatic.')+f'<section><div class="wrap">{MARQ}</div></section>{RESULTS}{RES2}{REVIEWS}')
 
-BLOG_CATS=['Noticias','Consejos','Casos de éxito']
+BLOG_CATS=['Noticias','Consejos','Casos de éxito','Servicios']
 def _post(i):
     return f'<a class="post" href="#" data-cat="{BLOG_CATS[(i-1)%3]}"><div class="th"></div><div class="c">{BLOG_CATS[(i-1)%3]}</div><h3>[Título del artículo {i}]</h3><p class="sub" style="font-size:16px">[Resumen de 1–2 líneas del artículo.]</p></a>'
 def _real(f,a):
@@ -291,6 +329,10 @@ page('blog.html','Blog | Mediatic',head('Blog','Noticias y artículos de <span c
 # ---- artículos del blog ----
 for _f,_a in ART_META.items():
     SEO[_f]=(_a['title'],_a['desc'],not _a.get('draft'))
+    if _f=='servicios.html':   # página de servicios con diseño propio (_build/servicios_page.html)
+        page(_f,_a['h1'],open(os.path.join(OUT,'_build','servicios_page.html')).read().replace('{{MARQ}}',MARQ).replace('{{REV}}',REVIEWS).replace('{{RES2}}',RES2.replace('data-link="resultados"','data-link="ag-contenido-bcn"')))
+        _p=os.path.join(OUT,_f); _t=open(_p).read().replace('data-link="cabecera"','data-link="ag-contenido-bcn"'); open(_p,'w').write(_t)
+        continue
     _body=open(os.path.join(OUT,'_build','articulos',_f)).read()
     _vid=('<div class="avid" data-vid="%s" role="button" tabindex="0" aria-label="Reproducir el vídeo: %s">%s<span class="rplay">&#9654;</span></div>'%(_a.get('yt',''),esc(_a['h1']),('<img src="%s" alt="Vídeo: %s" width="1280" height="720" loading="lazy" decoding="async">'%(_a['thumb'],esc(_a['h1']))) if os.path.exists(os.path.join(OUT,_a['thumb'])) else ''))+'<p class="vcap">Vídeo sobre los mitos de Instagram. Fuente: YouTube (canal de la agencia).</p>'
     _body=_body.replace('<!--VIDEO-->',_vid if _a.get('yt') else '')
@@ -309,7 +351,7 @@ for _f,_a in ART_META.items():
             _im=''.join('<img src="%s" alt="%s" loading="lazy" decoding="async">'%(os.path.relpath(p,OUT),esc(_alts[k] if k<len(_alts) else alt)) for k,p in enumerate(_g))
             return '<figure class="photo gal">%s%s</figure>'%(_im,('<figcaption>%s</figcaption>'%esc(cap)) if cap else '')
         if not os.path.exists(os.path.join(OUT,src)): return ''
-        return '<figure class="photo%s"><img src="%s" alt="%s" loading="lazy" decoding="async">%s</figure>'%((' shot' if 'de-profundis-instagram-' in src else ''),src,esc(alt),(('<figcaption>%s%s</figcaption>'%(esc(cap),('<br><span>Foto: %s</span>'%esc(cred)) if cred else ''))) if cap else '')
+        return '<figure class="photo%s"><img src="%s" alt="%s" loading="lazy" decoding="async">%s</figure>'%((' shot' if ('de-profundis-instagram-' in src or '-youtube' in src or '-antes' in src or '-comentarios' in src or '-vanguardia' in src or '-chat' in src) else ''),src,esc(alt),(('<figcaption>%s%s</figcaption>'%(esc(cap),('<br><span>Foto: %s</span>'%esc(cred)) if cred else ''))) if cap else '')
     _body=re.sub(r'<!--PROV:([^>]*?)-->',lambda m:'<figure class="photo prov" role="img" aria-label="%s"><div>Imagen provisional</div></figure>'%esc(m.group(1)),_body)
     _body=re.sub(r'<!--PHOTO:([^>]*?)-->',_photo,_body)
     _ks=list(ART_META);_i=_ks.index(_f)

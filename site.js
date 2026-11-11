@@ -142,3 +142,6 @@ render()})();
 (function(){document.querySelectorAll('.avid[data-vid]').forEach(function(b){function go(){if(b.classList.contains('on'))return;b.classList.add('on');
 var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.vid+'?autoplay=1&rel=0';f.title='Vídeo del artículo';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';f.allowFullscreen=true;b.appendChild(f)}
 b.addEventListener('click',go);b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})})})();
+
+/* página de servicios: el botón fijo inferior aparece al bajar */
+(function(){var b=document.querySelector('.svc-fab');if(!b)return;function t(){b.classList.toggle('on',(window.scrollY||0)>700)}addEventListener('scroll',t,{passive:true});t()})();

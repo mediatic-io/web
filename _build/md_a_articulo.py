@@ -7,20 +7,30 @@ sys.path.insert(0,'.')
 from ajustes_articulos import REEMPLAZOS_MD,PIES,OMITIR_ALT
 for _k,_v in REEMPLAZOS_MD.get(slug_out,{}).items(): src=src.replace(_k,_v)
 src=re.sub(r'\[Imagen \d+:','[Imagen:',src)
+src=re.sub(r'\[Foto personal \d+:[^\]]*?alt="([^"]+)"\]',r'[Imagen: foto alt="\1"]',src)   # fotos personales del paquete nuevo
+src=re.sub(r'## \d+\. Artículo','## 2. Artículo',src)
+src=re.sub(r'## \d+\. Imágenes','## 5. Imágenes',src)
 art=src.split('## 2. Artículo')[1].split('\n---\n')[0].strip().split('\n')
 art=[l for l in art if not l.startswith('# ')]
-PROVISIONAL={'opciones-marketing-2026','pmu-paradise'}   # artículos cuyas imágenes aún no existen: se publican con un hueco 'Imagen provisional'
+PROVISIONAL={'opciones-marketing-2026','pmu-paradise','caso-exito-mario-cozma','caso-exito-marina-garrido','caso-exito-gisela-jorba'}   # artículos cuyas imágenes aún no existen: se publican con un hueco 'Imagen provisional'
 TOC_TRAS_IMAGEN={'opciones-marketing-2026'}   # sin vídeo: el índice va debajo de la primera imagen
 STRIP_LIST_BOLD={'opciones-marketing-2026'}
 INTERNAL={
  'https://www.mediatic.io/casos-de-exito/[nombre-cliente]':'de-profundis.html',
  'https://www.mediatic.io/casos-de-exito/de-profundis':'de-profundis.html',
- 'https://www.mediatic.io/blog/descripcion-reels-instagram':'guion-reels-instagram.html',
+ 'https://www.mediatic.io/blog/descripcion-reels-instagram':'guion-perfecto-instagram.html',
  'https://www.mediatic.io/servicios':'servicios.html',
+ 'https://www.mediatic.io/':'index.html',
+ 'https://www.mediatic.io/blog/pmu-paradise':'pmu-paradise.html',
+ 'https://www.mediatic.io/blog/guion-perfecto-instagram':'guion-perfecto-instagram.html',
+ 'https://www.mediatic.io/blog/caso-exito-gisela-jorba':'caso-exito-gisela-jorba.html',
+ 'https://www.mediatic.io/casos-de-exito/manuel-costina':'caso-exito-manuel-costina.html',
+ 'https://www.mediatic.io/casos-de-exito/dra-marina-garrido':'caso-exito-marina-garrido.html',
  'https://www.mediatic.io/blog/mitos-de-instagram':'mitos-de-instagram.html',
  'https://www.mediatic.io/blog/opciones-de-marketing-2026':'opciones-marketing-2026.html',
  'https://www.mediatic.io/blog/mejores-agencias-contenido-barcelona':'mejores-agencias-contenido-barcelona.html',
  'https://www.mediatic.io/blog/gamma-pmu-congress-2026':'gamma-pmu-congress-2026.html',
+ 'https://www.mediatic.io/contacto-guion-perfecto-instagram':'index.html#contacto" data-link="blog-guion-perfecto-instagram',
  'https://www.mediatic.io/contacto':'index.html#contacto" data-link="blog-articulo',
 }
 AUTOLINK={'Arrieta Micropigmentación':'https://arrietamicropigmentacion.es/','De Profundis':'https://deprofundis.es/es/'}
@@ -117,6 +127,8 @@ def fig(m):
     note='<p class="fnote">Las tres primeras fases forman la estrategia.</p>' if k=='fases' else ''
     return '<figure class="fig" role="img" aria-label="%s"><figcaption>%s</figcaption>%s%s</figure>'%(alt,cap,bars,note)
 body=re.sub(r'<!--FIG:(\w+)\|([^>]*?)-->',fig,body)
+if '<nav class="toc"' not in body:   # artículo sin vídeo ni imagen de apertura: el índice va antes del primer apartado
+    body=body.replace('<h2 ',toch+'\n<h2 ',1)
 sys.path.insert(0,'.')
 from ajustes_articulos import AJUSTES
 for a,b in AJUSTES.get(slug_out,[]):

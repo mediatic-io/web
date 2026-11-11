@@ -20,10 +20,20 @@
     f.title=el.dataset.title||'';f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.src=el.dataset.src;
     el.innerHTML='';el.appendChild(f);
   }
+  // Google Analytics (etiqueta de Google GTM-WKZJV8WM): solo se carga si la persona ha aceptado la analítica
+  function loadAnalytics(){
+    if(window.__mtGA)return;window.__mtGA=1;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){window.dataLayer.push(arguments)};
+    window.gtag('js',new Date());
+    const s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtm.js?id=GTM-WKZJV8WM';
+    document.head.appendChild(s);
+  }
   function applyConsent(){
     if(st&&st.terceros)document.querySelectorAll('[data-embed]').forEach(loadEmbed);
     // ► Aquí se cargarán la analítica y los píxeles cuando se sepa cuáles se usan:
-    //   if(st&&st.analitica){ /* Google Analytics, Clarity... */ }
+    if(st&&st.analitica)loadAnalytics();
     //   if(st&&st.marketing){ /* Meta Pixel, TikTok Pixel, Google Ads... */ }
     document.dispatchEvent(new CustomEvent('mt-consent',{detail:st||{necesarias:true,analitica:false,marketing:false,terceros:false}}));
   }

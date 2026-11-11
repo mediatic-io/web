@@ -145,3 +145,10 @@ b.addEventListener('click',go);b.addEventListener('keydown',function(e){if(e.key
 
 /* página de servicios: el botón fijo inferior aparece al bajar */
 (function(){var b=document.querySelector('.svc-fab');if(!b)return;function t(){b.classList.toggle('on',(window.scrollY||0)>700)}addEventListener('scroll',t,{passive:true});t()})();
+
+// Analítica: cada clic en un botón o enlace con data-link se registra como evento (solo si la analítica está aceptada)
+document.addEventListener('click',function(e){
+  const a=e.target.closest&&e.target.closest('a[data-link]');
+  if(!a||!window.__mtGA||typeof window.gtag!=='function')return;
+  window.gtag('event','cta_click',{enlace:a.dataset.link,texto:(a.textContent||'').trim().slice(0,60),pagina:location.pathname});
+});
